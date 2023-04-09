@@ -3,7 +3,7 @@
 #define INCLUDE_TSTACK_H_
 #include <string>
 
-template<typename T, int size>
+template<typename T>
 class TStack {
  private:
     T arr[100];
@@ -11,33 +11,26 @@ class TStack {
 
  public:
     TStack() :top(-1) {}
-
     void push(T value) {
-        if (isFull()) {
-            throw std::string("Stack is full");
-        } else {
+        if (isfull())
+            throw std::string("Full");
+        else
             arr[++top] = value;
-        }
     }
-
     const T& pop() {
-        if (isEmpty()) {
-            throw std::string("Stack is empty");
-        } else {
+        if (isempty())
+            throw std::string("Empty");
+        else
             return arr[top--];
-        }
     }
-
-    bool isEmpty()const {
+    const T& get() {
+        return arr[top];
+    }
+    bool isempty() {
         return top == -1;
     }
-
-    bool isFull()const {
-        return top == size - 1;
-    }
-
-    const T& get()const {
-        return arr[top];
+    bool isfull() {
+        return top == 100;
     }
 };
 
