@@ -16,7 +16,7 @@ int prior(char a) {
       return -1;
 }
 int oper(char a) {
-  return (a == '+' || a == '-' || x == '*' || x == '/');
+  return (a == '+' || a == '-' || a == '*' || a == '/');
 }
 int numb(char a) {
   return (a >= '0' && a <= '9');
