@@ -26,10 +26,10 @@ class TStack {
     const T& get() {
         return arr[top];
     }
-    bool isEmpty() {
+    bool isempty() {
         return top == -1;
     }
-    bool isFull() {
+    bool isfull() {
         return top == 100;
     }
 };
