@@ -12,14 +12,14 @@ class TStack {
     TStack() :top(-1) {}
     void push(T value) {
       if (isFull()) {
-        throw std::string("Stack is full");
+        throw std::string("Full");
       } else {
         arr[++top] = value;
       }
     }
     const T& pop() {
       if (isEmpty()) {
-        throw std::string("Stack is empty");
+        throw std::string("Empty");
       } else {
         return arr[top--];
       }
