@@ -36,20 +36,17 @@ std::string infx2pstfx(std::string inf) {
         if (number(inf[i])) {
             result += inf[i];
             result += " ";
-        }
-      else if (inf[i] == '(') {
-            stack.push(inf[i]);
-        }
-      else if (inf[i] == ')') {
-            while (!stack.isEmpty() && stack.get() != '(') {
-                result += stack.get();
-                result += " ";
-                stack.pop();
-            }
+        } else if (inf[i] == '(') {
+              stack.push(inf[i]);
+        } else if (inf[i] == ')') {
+              while (!stack.isEmpty() && stack.get() != '(') {
+                  result += stack.get();
+                  result += " ";
+                  stack.pop();
+              }
             stack.pop();
-        }
-      else if (operator(inf[i])) {
-            while (!stack.isEmpty() && prioritet(stack.get()) \
+        } else if (operator(inf[i])) {
+              while (!stack.isEmpty() && prioritet(stack.get()) \
                    >= prioritet(inf[i])) {
                 result += stack.get();
                 result += " ";
@@ -71,23 +68,19 @@ int eval(std::string pref) {
     for (int i = 0; i < pref.length(); i+=2) {
         if (number(pref[i])) {
             stack1.push(convert(pref[i]));
-        }
-      else if (operator(pref[i])) {
-        int x = stack1.get();
-        stack1.pop();
-        int y = stack1.get();
-        stack1.pop();
+        } else if (operator(pref[i])) {
+            int x = stack1.get();
+            stack1.pop();
+            int y = stack1.get();
+            stack1.pop();
         if (pref[i] == '+') {
           stack1.push(y + x);
-            }
-        else if (pref[i] == '-') {
-          stack1.push(y - x);
-            }
-        else if (pref[i] == '*') {
-          stack1.push(y * x);
-            }
-        else if (pref[i] == '/') {
-          stack1.push(y / x);
+            } else if (pref[i] == '-') {
+                stack1.push(y - x);
+            } else if (pref[i] == '*') {
+                stack1.push(y * x);
+            } else if (pref[i] == '/') {
+                stack1.push(y / x);
         }
       }
     }
